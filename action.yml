@@ -1,0 +1,15 @@
+name: 'OpenAI Image Generator'
+description: 'Generate an openai image'
+inputs:
+  api-key:  # id of input
+    description: 'Your openai api key'
+    required: true
+  query:
+    description: 'Your image generation query'
+    required: true
+outputs:
+  url:  # id of output
+    description: 'The url of the generated image'
+runs:
+  using: 'node16'
+  main: 'index.js'
