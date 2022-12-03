@@ -1,16 +1,23 @@
 name: 'OpenAI Image Generator'
 description: 'Generate an openai image'
 inputs:
+  type:
+    description: 'The resource type to generate (text, image)'
+    required: true
   api-key:  # id of input
     description: 'Your openai api key'
     required: true
   query:
     description: 'Your image generation query'
     required: true
-  size:
+  image_size:
     description: 'The size of the image'
     required: false
     default: '256x256'
+  model:
+    description: 'The model to use'
+    required: false
+    default: 'text-davinci-003'
 outputs:
   url:  # id of output
     description: 'The url of the generated image'
