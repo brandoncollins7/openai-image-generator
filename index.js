@@ -15,13 +15,13 @@ const core = require('@actions/core');
             n: 1,
             size: core.getInput('image_size'),
         });
-        core.setOutput("url", response.data.data[0].url);
+        core.setOutput("output", response.data.data[0].url);
     } else if (type === "text") {
         const response = await openai.createCompletion({
             prompt: query,
             model: core.getInput('model'),
             n: 1
         });
-        core.setOutput("url", response.data.choices[0].text);
+        core.setOutput("output", response.data.choices[0].text);
     }
 })()

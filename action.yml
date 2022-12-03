@@ -19,8 +19,8 @@ inputs:
     required: false
     default: 'text-davinci-003'
 outputs:
-  url:  # id of output
-    description: 'The url of the generated image'
+  output:  # id of output
+    description: 'The desired output'
 runs:
   using: 'node16'
   main: 'index.js'
