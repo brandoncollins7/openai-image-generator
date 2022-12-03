@@ -9,9 +9,9 @@ const core = require('@actions/core');
     });
     const openai = new OpenAIApi(configuration);
     const response = await openai.createImage({
-        prompt: query,//"a sad cartoon penguin in the style of family guy",
+        prompt: query,
         n: 1,
-        size: "256x256",
+        size: core.getInput('size'),
     });
     core.setOutput("url", response.data.data[0].url);
 })()

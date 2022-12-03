@@ -7,6 +7,10 @@ inputs:
   query:
     description: 'Your image generation query'
     required: true
+  size:
+    description: 'The size of the image'
+    required: false
+    default: '256x256'
 outputs:
   url:  # id of output
     description: 'The url of the generated image'
