@@ -14,5 +14,4 @@ const core = require('@actions/core');
         size: "256x256",
     });
     core.setOutput("url", response.data.data[0].url);
-    const result = esult
 })()
