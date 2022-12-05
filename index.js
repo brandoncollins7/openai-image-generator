@@ -20,7 +20,12 @@ const core = require('@actions/core');
         const response = await openai.createCompletion({
             prompt: query,
             model: core.getInput('model'),
-            n: 1
+            n: 1,
+            temperature: 0,
+            max_tokens: 60,
+            top_p: 1,
+            frequency_penalty: 0.5,
+            presence_penalty: 0
         });
         core.setOutput("output", response.data.choices[0].text);
     }
