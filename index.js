@@ -18,15 +18,24 @@ const core = require('@actions/core');
         core.setOutput("output", response.data.data[0].url);
     } else if (type === "text") {
         const response = await openai.createCompletion({
+            model: "text-davinci-003",
             prompt: query,
-            model: core.getInput('model'),
-            n: 1,
-            temperature: 0,
-            max_tokens: 60,
+            temperature: 0.7,
+            max_tokens: 256,
             top_p: 1,
-            frequency_penalty: 0.5,
-            presence_penalty: 0
+            frequency_penalty: 0,
+            presence_penalty: 0,
         });
         core.setOutput("output", response.data.choices[0].text);
     }
 })()
+
+const response = await openai.createCompletion({
+    model: "text-davinci-003",
+    prompt: "give me one sentence of words of encouragement for trying better next time.\n\nNo matter how many times you fail, keep trying and you will eventually succeed.",
+    temperature: 0.7,
+    max_tokens: 256,
+    top_p: 1,
+    frequency_penalty: 0,
+    presence_penalty: 0,
+});
